@@ -24,6 +24,5 @@ jobs:
   job-3:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ toJSON(github) }}"
-      - run: echo "${{ github }}"
-      - run: echo "${{ github.job }}"
+      - name: Check for dockerenv file
+        run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
