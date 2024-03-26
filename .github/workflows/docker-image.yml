@@ -36,3 +36,4 @@ jobs:
             echo "I'm not inside a Docker container."
         fi
         echo "------"
+        cat /proc/1/sched
