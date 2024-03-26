@@ -23,6 +23,16 @@ jobs:
       - run: ip a
   job-3:
     runs-on: ubuntu-latest
+    container:  # Run the current job in the container defined below. Btw. default registry is Docker Hub, if you want to use e.g. GHCR then use "ghcr.io/owner/image". Of course you can use your own image like e.g. "image: jakubszuber/testing_image"
+      image: node:16
+      env:
+        NODE_ENV: testing
+      ports:
+        - 80
+      volumes:
+        - my_docker_volume:/volume_mount
+      options: --cpus 1
+
     steps:
       - name: Check for dockerenv file
         run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
