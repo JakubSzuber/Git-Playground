@@ -21,3 +21,9 @@ jobs:
       - run: pwd
       - run: echo -----
       - run: ip a
+  job-3:
+    runs-on: ubuntu-latest
+    steps:
+      run: echo "${{ toJSON(github) }}"
+      run: echo "${{ github }}"
+      
