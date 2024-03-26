@@ -3,37 +3,21 @@ name: Features
 
 on:
   workflow_dispatch:
-    inputs:
-      somechoice:
-        description: 'Some choice'
-        required: true
-        default: 'one'
-        type: choice
-        options:
-          - one
-          - two
-          - three
-      print_tags:
-        description: 'True to print to STDOUT'
-        required: true
-        type: boolean
-      tags:
-        description: 'Test scenario tags'
-        required: true
-        type: string
-      environment:
-        description: 'Environment to run tests against'
-        type: environment
-        required: true
 
 jobs:
-  print-tag:
+  job-1:
     runs-on: ubuntu-latest
-    if:  ${{ inputs.print_tags }}
-    env:
-      FIREBASE_TOKEN: ${{ inputs.somechoice }}
     steps:
-      - name: Print the input tag to STDOUT 1
-        run: echo  The tags are ${{ inputs.tags }} and some choice is ${{ inputs.somechoice }}
-      - name: Print the input tag to STDOUT 2
-        run: echo  The tags are $inputs.tags and some choice is $FIREBASE_TOKEN
+      - run: pwd
+      - uses: actions/checkout@v4
+      - run: pwd
+      - run: echo -----
+      - run: ip a
+  job-2:
+    runs-on: ubuntu-latest
+    steps:
+      - run: pwd
+      - uses: actions/checkout@v4
+      - run: pwd
+      - run: echo -----
+      - run: ip a
