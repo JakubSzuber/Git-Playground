@@ -26,4 +26,4 @@ jobs:
     steps:
       - run: echo "${{ toJSON(github) }}"
       - run: echo "${{ github }}"
-      
+      - run: echo "${{ github.job }}"
