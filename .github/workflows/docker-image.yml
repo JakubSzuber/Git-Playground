@@ -10,4 +10,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - run: 'echo test123'
+    - run: |
+        echo "------"
+        which docker
+        echo "------"
+        cat /proc/1/cgroup | grep -q docker && echo "You are in a Docker container" || echo "You are not in a Docker container"
+        echo "------"
+        echo $DOCKER_CONTAINER
+        echo "------"
+        if [ -f /.dockerenv ]; then
+            echo "I'm inside a Docker container."
+        else
+            echo "I'm not inside a Docker container."
+        fi
+        echo "------"
+        if grep -q docker /proc/1/cgroup; then
+            echo "I'm inside a Docker container."
+        else
+            echo "I'm not inside a Docker container."
+        fi
+        echo "------"
+        if [[ ! $(cat /proc/1/sched | head -n 1 | grep init) ]]; then
+            echo "I'm inside a Docker container."
+        else
+            echo "I'm not inside a Docker container."
+        fi
+        echo "------"
