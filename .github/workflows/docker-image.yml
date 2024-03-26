@@ -36,3 +36,5 @@ jobs:
     steps:
       - name: Check for dockerenv file
         run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
+      - run: whoami
+      - run: cat /etc/passwd
