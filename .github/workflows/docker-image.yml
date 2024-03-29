@@ -9,14 +9,14 @@ jobs:
   job-1:
     runs-on: ubuntu-22.04
     steps:
-      - run: pwd
+      - run: ls -la
       - uses: actions/checkout@v4
-      - run: pwd
-      - run: echo -----
-      - run: ip a
+      - run: ls -la
+      - run: touch test.txt
+      - run: ls -la
   job-2:
     needs: [job-1]
-    if: failure()
+    if: failure() || success()
     runs-on: ubuntu-22.04
     steps:
       - run: pwd
