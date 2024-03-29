@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - run: whoami
+      - run: sudo apt-get install jq
+      - run: apt-get install jq
       - run: ps
       - run: ps
       - run: ls -la
