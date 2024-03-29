@@ -10,6 +10,8 @@ jobs:
   job-1:
     runs-on: ubuntu-22.04
     steps:
+      - run: ps
+      - run: ps
       - run: ls -la
       - run: pwd
       - uses: actions/checkout@v4
@@ -30,6 +32,7 @@ jobs:
       - run: ip a
   job-3:
     runs-on: ubuntu-22.04
+    if: 1==2
     container:  # Run the current job in the container defined below. Btw. default registry is Docker Hub, if you want to use e.g. GHCR then use "ghcr.io/owner/image". Of course you can use your own image like e.g. "image: jakubszuber/testing_image"
       image: node:16
       env:
