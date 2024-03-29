@@ -14,6 +14,7 @@ jobs:
       - run: pwd
       - uses: actions/checkout@v4
       - run: ls -la
+      - run: cd common
       - run: touch test.txt
       - run: ls -la
       - run: pwd
