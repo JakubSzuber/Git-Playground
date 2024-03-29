@@ -10,6 +10,7 @@ jobs:
   job-1:
     runs-on: ubuntu-22.04
     steps:
+      - run: whoami
       - run: ps
       - run: ps
       - run: ls -la
