@@ -10,10 +10,12 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - run: ls -la
+      - run: pwd
       - uses: actions/checkout@v4
       - run: ls -la
       - run: touch test.txt
       - run: ls -la
+      - run: pwd
   job-2:
     needs: [job-1]
     if: failure() || success()
